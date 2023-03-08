@@ -1,6 +1,7 @@
-import React, { useLayoutEffect, useRef } from 'react'
-import gsap from 'gsap';
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useScroll } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import gsap from "gsap";
+import React, { useLayoutEffect, useRef } from "react";
 
 export const FLOOR_HEIGHT = 2.3;
 export const NB_FLOORS = 3;
@@ -9,6 +10,12 @@ export function Office(props) {
   const { nodes, materials } = useGLTF('./models/WawaOffice.glb')
   const ref = useRef();
   const tl = useRef();
+
+  const scroll = useScroll();
+
+  useFrame(() => {
+    tl.current.seek(scroll.offset * tl.current.duration());
+  });
 
   useLayoutEffect(() => {
     tl.current = gsap.timeline();
@@ -22,7 +29,7 @@ export function Office(props) {
       },
       0
     );
-    
+
   }, []);
   
   return (
