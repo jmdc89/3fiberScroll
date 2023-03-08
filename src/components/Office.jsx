@@ -32,6 +32,18 @@ export function Office(props) {
       0
     );
 
+    // Office Rotation
+    tl.current.to(
+      ref.current.rotation,
+      { duration: 1, x: 0, y: Math.PI / 6, z: 0 },
+      0
+    );
+    tl.current.to(
+      ref.current.rotation,
+      { duration: 1, x: 0, y: -Math.PI / 6, z: 0 },
+      1
+    );
+
   }, []);
   
   return (
