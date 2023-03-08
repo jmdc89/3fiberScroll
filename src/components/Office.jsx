@@ -3,8 +3,10 @@ import { useGLTF } from '@react-three/drei'
 
 export function Office(props) {
   const { nodes, materials } = useGLTF('./models/WawaOffice.glb')
+  const ref = useRef();
+  
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={ref}>
       <mesh geometry={nodes['01_office'].geometry} material={materials['01']} />
       <mesh geometry={nodes['02_library'].geometry} material={materials['02']} position={[0, 2.11, -2.23]} />
       <mesh geometry={nodes['03_attic'].geometry} material={materials['03']} position={[-1.97, 4.23, -2.2]} />
