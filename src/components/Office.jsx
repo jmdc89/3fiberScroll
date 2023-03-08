@@ -44,6 +44,26 @@ export function Office(props) {
       1
     );
 
+    // Office movement
+    tl.current.to(
+      ref.current.position,
+      {
+        duration: 1,
+        x: -1,
+        z: 2,
+      },
+      0
+    );
+    tl.current.to(
+      ref.current.position,
+      {
+        duration: 1,
+        x: 1,
+        z: 2,
+      },
+      1
+    );
+
   }, []);
   
   return (
