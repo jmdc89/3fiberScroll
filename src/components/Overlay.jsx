@@ -38,9 +38,10 @@ export const Overlay = () => {
     return (
         <Scroll html>
         <div class="w-screen">
+
           <Section opacity={opacityFirstSection}>
             <h1 className="font-semibold font-serif text-2xl">
-              Hello, I'm Wawa Sensei
+              Hello, I'm Jose
             </h1>
             <p className="text-gray-500">Welcome to my beautiful portfolio</p>
             <p className="mt-3">I know:</p>
@@ -51,6 +52,7 @@ export const Overlay = () => {
             </ul>
             <p className="animate-bounce  mt-6">↓</p>
           </Section>
+
           <Section right opacity={opacitySecondSection}>
             <h1 className="font-semibold font-serif text-2xl">
               Here are my skillsets 🔥
@@ -76,6 +78,7 @@ export const Overlay = () => {
             </ul>
             <p className="animate-bounce  mt-6">↓</p>
           </Section>
+
           <Section opacity={opacityLastSection}>
             <h1 className="font-semibold font-serif text-2xl">
               🤙 Call me maybe?
@@ -87,6 +90,7 @@ export const Overlay = () => {
               📞 <a href="tel:(+42) 4242-4242-424242">(+42) 4242-4242-424242</a>
             </p>
           </Section>
+          
         </div>
       </Scroll>
     );
