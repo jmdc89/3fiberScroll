@@ -24,6 +24,17 @@ const Section = (props) => {
   };
 
 export const Overlay = () => {
+    const scroll = useScroll();
+  const [opacityFirstSection, setOpacityFirstSection] = useState(1);
+  const [opacitySecondSection, setOpacitySecondSection] = useState(1);
+  const [opacityLastSection, setOpacityLastSection] = useState(1);
+
+  useFrame(() => {
+    setOpacityFirstSection(1 - scroll.range(0, 1 / 3));
+    setOpacitySecondSection(scroll.curve(1 / 3, 1 / 3));
+    setOpacityLastSection(scroll.range(2 / 3, 1 / 3));
+  });
+
     return (
     <Scroll html><h1 className="font-serif text-2xl">Hello World
     </h1>
