@@ -1,9 +1,29 @@
-import React, { useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
+import gsap from 'gsap';
 import { useGLTF } from '@react-three/drei'
+
+export const FLOOR_HEIGHT = 2.3;
+export const NB_FLOORS = 3;
 
 export function Office(props) {
   const { nodes, materials } = useGLTF('./models/WawaOffice.glb')
   const ref = useRef();
+  const tl = useRef();
+
+  useLayoutEffect(() => {
+    tl.current = gsap.timeline();
+
+    // VERTICAL ANIMATION
+    tl.current.to(
+      ref.current.position,
+      {
+        duration: 2,
+        y: -FLOOR_HEIGHT * (NB_FLOORS - 1),
+      },
+      0
+    );
+    
+  }, []);
   
   return (
     <group {...props} dispose={null} ref={ref}>
