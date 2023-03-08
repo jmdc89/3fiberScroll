@@ -82,6 +82,35 @@ export function Office(props) {
       0
     );
 
+    // ATTIC
+    tl.current.from(
+      atticRef.current.position,
+      {
+        duration: 1.5,
+        y: 2,
+      },
+      0
+    );
+
+    tl.current.from(
+      atticRef.current.rotation,
+      {
+        duration: 0.5,
+        y: Math.PI / 2,
+      },
+      1
+    );
+
+    tl.current.from(
+      atticRef.current.position,
+      {
+        duration: 0.5,
+
+        z: -2,
+      },
+      1.5
+    );
+
   }, []);
   
   return (
